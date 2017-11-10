@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" 
+			   xmlns:local="*">
+
+	
+	<s:controlBarContent>
+		<s:Label text="Simple Client FTP" />
+	</s:controlBarContent>
+	
+	<s:controlBarLayout>
+		<s:HorizontalLayout verticalAlign="middle"	paddingBottom="20" paddingTop="20" paddingLeft="20" />	
+	</s:controlBarLayout>
+	
+	<fx:Script>
+		<![CDATA[
+			import events.TransfertEvent;
+			
+			import mx.controls.Alert;
+			
+			protected function localfilesystempanel1_transfertFileHandler(event:TransfertEvent):void
+			{
+				Alert.show( event.toString() );
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<mx:HDividedBox verticalCenter="0" horizontalCenter="0"
+					left="100" top="100" right="100" bottom="100" horizontalGap="20" >
+		
+		
+		<local:LocalFileSystemPanel width="100%" height="100%" transfertFile="localfilesystempanel1_transfertFileHandler(event)"  />
+		
+		<s:Panel title="Système de fichiers distant"
+				 width="100%" height="100%" minWidth="200">
+			
+			<s:List left="10" top="10" right="10" bottom="10" />
+			
+			<s:controlBarContent>
+				<s:Button label="Télécharger" />
+				<mx:Spacer width="100%" />
+				<s:Button label="Créer un dossier" />
+			</s:controlBarContent>
+		</s:Panel>
+		
+	</mx:HDividedBox>
+	
+	
+	
+	
+	
+</s:Application>
